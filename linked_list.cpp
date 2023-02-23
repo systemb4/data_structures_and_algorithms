@@ -5,11 +5,13 @@ class Node {
         int data;
         Node *next;
 
+        // default constructor
         Node() {
             data = 0;
             next = NULL;
         }
 
+        // paramtized constructor
         Node(int n_data) {
             this->data = n_data;
             this->next = NULL;
@@ -19,10 +21,12 @@ class Node {
 class LinkedList {
     Node *head;
     public:
+        // default constructor
         LinkedList() {
             head = NULL;
         }
 
+        // class functions
         void addNode(int);
         void printList();
 };
@@ -30,11 +34,13 @@ class LinkedList {
 void LinkedList::printList() {
     Node *tmp = head;
 
+    // check if anything in list
     if(head == NULL) {
-        std::cout << "List Empty!" << std::endl;
+
         return;
     }
 
+    // go through each element and print it
     while(tmp != NULL) {
         std::cout << tmp->data << std::endl;
         tmp = tmp->next;
