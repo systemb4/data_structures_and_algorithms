@@ -32,7 +32,6 @@ class DoublyLinkedList {
         // class functions
         void addNodeEnd(int);
         void printList();
-        void addNodeFront(int);
         void testPrint();
 };
 
