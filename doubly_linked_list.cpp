@@ -30,9 +30,10 @@ class DoublyLinkedList {
         }
 
         // class functions
-        void addNodeEnd(int);
         void printList();
         void testPrint();
+        void addNodeEnd(int);
+        void addNodeFront(Node **, int);
 };
 
 void DoublyLinkedList::printList() {
@@ -81,6 +82,19 @@ void DoublyLinkedList::addNodeEnd(int input_data) {
     newNode->prev = headNode;
 }
 
+void DoublyLinkedList::addNodeFront(Node **head_ref, int input_data) {
+    Node *newNode = new Node(input_data);
+
+    if(head == NULL) {
+        head = newNode;
+        return;
+    }
+
+    head->prev = newNode;
+    newNode->next = head;
+    *head_ref = newNode;
+}
+
 int main() {
     DoublyLinkedList list1;
 
@@ -92,6 +106,9 @@ int main() {
     list1.printList();
     std::cout << std::endl;
     list1.testPrint();
+
+    //list1.addNodeFront(list1.head, 44);
+    list1.printList();
 
     return 0;
 }
