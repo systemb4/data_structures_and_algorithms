@@ -31,6 +31,10 @@ class LinkedList {
 
         void addToEnd(std::string);
         void printList();
+
+        Node *getHead() {
+            return head;
+        }
 };
 
 LinkedList **hashArr;
@@ -75,10 +79,14 @@ void hashSort(int hashNum, std::string name) {
 int main() {
     hashArr = new LinkedList*[HASHMAX];
     for(int i = 0; i < HASHMAX; i++) {
-        hashArr[i] = new LinkedList;
+        hashArr[i] = new LinkedList();
     }
 
-    hashArr[2]->addToEnd("Lukas");
+    hashSort(hashFunction("Lukas"), "Lukas");
+    LinkedList *head = hashArr[2];
+    Node *headT = head->getHead();
+    //headT = headT->next;
+    std::cout << headT->getName() << std::endl;
 
     return 0;
 }
