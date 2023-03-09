@@ -36,7 +36,6 @@ void LinkedList::printList() {
 
     // check if anything in list
     if(head == NULL) {
-
         return;
     }
 

@@ -1,5 +1,6 @@
 #include <iostream>
 
+// size of hashtable array
 #define HASHMAX 10
 
 class Node {
@@ -8,7 +9,7 @@ class Node {
         Node *next;
 
         Node() {
-            name = "Test";
+            name = "name";
             next = NULL;
         }
 
@@ -37,7 +38,10 @@ class LinkedList {
         }
 };
 
+// pointer to array of pointers for hashtable
 LinkedList **hashArr;
+
+std::string namesList[] = {"Olivia", "Liam", "Emma", "Noah", "Amelia", "Oliver", "Ava", "Elijah", "Sophia", "Mateo", "Isabella", "Lucas", "Luna", "Levi", "Mia", "Asher", "Charlotte", "James", "Evelyn", "Leo", "Harper", "Grayson", "Scarlett", "Ezra", "Nova", "Luca", "Aurora", "Ethan", "Ella", "Aiden", "Mila", "Wyatt", "Aria", "Sebastian", "Ellie", "Benjamin", "Gianna", "Mason", "Sofia", "Henry", "Violet", "Hudson", "Layla", "Jack", "Willow", "Jackson", "Lily", "Owen", "Hazel", "Daniel", "Camila", "Alexander", "Avery", "Maverick", "Chloe", "Kai", "Elena", "Gabriel", "Paisley", "Carter", "Eliana", "William", "Penelope", "Logan", "Eleanor", "Michael", "Ivy", "Samuel", "Elizabeth", "Muhammad", "Riley", "Waylon", "Isla", "Ezekiel", "Abigail", "Jayden", "Nora", "Luke", "Stella", "Lincoln", "Grace", "Theo", "Zoey", "Jacob", "Emily", "Josiah", "Emilia", "David", "Leilani", "Jaxon", "Everly", "Elias", "Kinsley", "Julian", "Athena", "Theodore", "Delilah", "Isaiah", "Naomi", "Matthe"};
 
 void LinkedList::addToEnd(std::string n_name) {
     Node *newNode = new Node(n_name);
@@ -57,12 +61,17 @@ void LinkedList::addToEnd(std::string n_name) {
 
 void LinkedList::printList() {
     Node *tmp = head;
-    while(tmp->next != NULL) {
-        std::cout << tmp->getName() << std::endl;
+
+    while(tmp != NULL) {
+        std::cout << "\"" << tmp->getName() << "\" " ;
+        tmp = tmp->next;
     }
+
+    std::cout << "\n" << std::endl;
 }
 
 int hashFunction(std::string name) {
+    // very very simple hash function
     int sum = 0;
 
     for(int i = 0; name[i] != '\0'; i++) {
@@ -73,20 +82,29 @@ int hashFunction(std::string name) {
 }
 
 void hashSort(int hashNum, std::string name) {
+    // add name to end of linked list in specific array node
     hashArr[hashNum]->addToEnd(name);
 }
 
 int main() {
+    // create an array of pointers of type LinkedList (hashtable)
     hashArr = new LinkedList*[HASHMAX];
+
+    // initialize each node in hashtable
     for(int i = 0; i < HASHMAX; i++) {
         hashArr[i] = new LinkedList();
     }
 
-    hashSort(hashFunction("Lukas"), "Lukas");
-    LinkedList *head = hashArr[2];
-    Node *headT = head->getHead();
-    //headT = headT->next;
-    std::cout << headT->getName() << std::endl;
+    // hash function on all names from nameList
+    for(int i = 0; i <= 99; i++) {
+        hashSort(hashFunction(namesList[i]), namesList[i]);
+    }
+
+    // print each linked list for all 10 array nodes
+    for(int i = 0; i < HASHMAX; i++) {
+        std::cout << i << ": ";
+        hashArr[i]->printList();
+    }
 
     return 0;
 }
