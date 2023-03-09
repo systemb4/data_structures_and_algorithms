@@ -5,24 +5,3 @@ doubly linked list: https://www.geeksforgeeks.org/introduction-and-insertion-in-
 hashtable: https://www.youtube.com/watch?v=nvzVHwrrub0
     https://stackoverflow.com/questions/21420772/array-of-linked-lists-c
     https://www.tutorialspoint.com/data_structures_algorithms/hash_data_structure.htm
-
-    example output for hashtable of size 10:
-        0: "Noah" "Ava" "Luna" "Levi" "Harper" "Gianna" "Mason" "Lily" "Hazel" "Eleanor" "Elizabeth" "Muhammad" "Nora" "Theo" "Naomi"
-
-        1: "Aiden" "Aria" "Ellie" "Chloe" "Michael" "Abigail" "Luke" "Everly" "Julian" "Delilah" "Isaiah" "Matthe"
-
-        2: "Olivia" "Sophia" "Mateo" "Ezra" "Ella" "Sebastian" "Ivy" "Grace" "Emily" "Leilani" "Jaxon"
-
-        3: "Jackson" "Camila" "Isla" "Ezekiel" "Jayden" "Stella" "Zoey" "Emilia" "Athena"
-
-        4: "Emma" "Lucas" "Charlotte" "Scarlett" "Nova" "Benjamin" "Gabriel" "Penelope" "Waylon" "Elias"
-
-        5: "Amelia" "Oliver" "Hudson" "Elena" "Samuel" "Kinsley"
-
-        6: "James" "Ethan" "Alexander" "Eliana" "Josiah" "Theodore"
-
-        7: "Liam" "Isabella" "Evelyn" "Mila" "Wyatt" "Violet" "Jack" "Kai" "Paisley" "Logan" "Riley"
-
-        8: "Leo" "Aurora" "Sofia" "Henry" "Willow" "Maverick" "David"
-
-        9: "Elijah" "Mia" "Asher" "Grayson" "Luca" "Layla" "Owen" "Daniel" "Avery" "Carter" "William" "Lincoln" "Jacob"
