@@ -1,8 +1,9 @@
 #include <iostream>
 
 class Node {
-    public:
+    private:
         int data;
+    public:
         Node *next;
 
         // default constructor
@@ -16,10 +17,15 @@ class Node {
             this->data = n_data;
             this->next = NULL;
         }
+
+        int getData() {
+            return data;
+        }
 };
 
 class LinkedList {
-    Node *head;
+    private:
+        Node *head;
     public:
         // default constructor
         LinkedList() {
@@ -29,7 +35,13 @@ class LinkedList {
         // class functions
         void addNode(int);
         void printList();
+        void deleteNode(Node *);
+        Node *getHead();
 };
+
+Node *LinkedList::getHead() {
+    return head;
+}
 
 void LinkedList::printList() {
     Node *tmp = head;
@@ -41,7 +53,7 @@ void LinkedList::printList() {
 
     // go through each element and print it
     while(tmp != NULL) {
-        std::cout << tmp->data << std::endl;
+        std::cout << tmp->getData() << std::endl;
         tmp = tmp->next;
     }
 }
@@ -62,6 +74,12 @@ void LinkedList::addNode(int input_data) {
     tmp->next = newNode;
 }
 
+void LinkedList::deleteNode(Node *prevDel) {
+    Node *del = prevDel->next;
+    prevDel->next = del->next;
+    delete del;
+}
+
 int main() {
     LinkedList list1;
 
@@ -70,6 +88,9 @@ int main() {
     list1.addNode(3);
     list1.addNode(4);
     list1.addNode(5);
+
+    Node *tmp = list1.getHead();
+    list1.deleteNode(tmp);
 
     list1.printList();
 
